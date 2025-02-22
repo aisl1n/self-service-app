@@ -1,21 +1,18 @@
-import './globals.css';
+import "./globals.css";
 
-import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
+import { CartProvider } from "./[slug]/menu/context/cart";
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: 'Self Service App',
-  description: 'A self service app for managing your orders',
+  title: "Self Service App",
+  description: "A self service app for managing your orders",
 };
 
 export default function RootLayout({
@@ -24,11 +21,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en">
+      <body className={`${poppins.className} antialiased`}>
+        <CartProvider>{children}</CartProvider>
       </body>
     </html>
   );
