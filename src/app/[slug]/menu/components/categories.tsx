@@ -49,6 +49,7 @@ const RestaurantCategories = ({ restaurant }: RestaurantCategoriesProps) => {
             src={restaurant.avatarImageUrl}
             alt={restaurant.name}
             width={45}
+            priority
             height={45}
           />
           <div>

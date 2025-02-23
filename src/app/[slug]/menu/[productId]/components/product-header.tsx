@@ -31,6 +31,7 @@ const ProductHeader = ({ product }: ProductHeaderProps) => {
         src={product.imageUrl}
         alt={product.name}
         fill
+        priority
         className="object-contain"
       />
 
