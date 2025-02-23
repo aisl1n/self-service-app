@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import {
   Sheet,
   SheetContent,
@@ -24,12 +25,16 @@ const CardSheet = () => {
         <SheetHeader>
           <SheetTitle className="text-left">Sacola</SheetTitle>
         </SheetHeader>
+
         <div className="flex h-full flex-col py-5">
-          <div className="flex-auto">
-            {products.map((product) => (
-              <CartProductItem key={product.id} product={product} />
-            ))}
-          </div>
+          <ScrollArea className="w-full flex-auto">
+            <div className="mb-4 space-y-4 overflow-y-auto scroll-smooth">
+              {products.map((product) => (
+                <CartProductItem key={product.id} product={product} />
+              ))}
+            </div>
+            <ScrollBar orientation="vertical" />
+          </ScrollArea>
           <Card className="mb-6">
             <CardContent className="p-5">
               <div className="flex justify-between">

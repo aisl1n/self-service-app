@@ -17,12 +17,14 @@ const CartProductItem = ({ product }: CartProductItemProps) => {
   return (
     <div className="flex items-center justify-between">
       {/* ESQUERDA */}
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center gap-3">
         <div className="relative size-20 rounded-xl bg-gray-100">
           <Image src={product.imageUrl} alt={product.name} fill />
         </div>
-        <div className="space-y-1">
-          <p className="max-w-[90%] truncate text-xs">{product.name}</p>
+        <div className="w-40 space-y-1">
+          <p className="max-w-[90%] truncate text-ellipsis text-xs">
+            {product.name}
+          </p>
           <p className="text-sm font-semibold">
             {formatCurrency(product.price)}
           </p>
